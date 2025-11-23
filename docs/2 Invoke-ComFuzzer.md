@@ -12,7 +12,7 @@ SYNTAX
     [[-minIntSize] <Int32>] [[-maxIntSize] <Int32>] [[-GuidInput] <Guid>] [[-IntInput] <Int32>] [[-UNC] <String>]
     [-OutPath] <String> [-NoSpecialChars] [[-Blacklist] <String>] [[-Procedure] <String>] [[-Iterations] <Int32>]
     [[-Canary] <String>] [[-RemoteServer] <String>] [[-Username] <String>] [[-Password] <String>] [[-Domain] <String>]
-    [[-Skip] <String[]>] [<CommonParameters>]
+    [[-Skip] <String[]>] [[-Timeout] <Int32>] [<CommonParameters>]
 
 OPTIONS
     -Output
@@ -38,6 +38,7 @@ OPTIONS
     -Password               Specify the password for authentication to the remote COM server
     -Domain                 Specify the domain for authentication to the remote COM server
     -Skip                   Specify procedures to skip
+    -Timeout                Specify timeout for hanging procedures (default 5 seconds)
 ```
 
 ## Examples

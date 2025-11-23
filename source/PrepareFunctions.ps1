@@ -134,9 +134,14 @@ function Get-ComServerData {
             'GetType', 'QueryInterface', 'ToString', 'Unwrap'
         )
 
-        $Results = @()
-
         Write-Host "[+] Processing COM classess... can take a while, check with -Verbose"
+
+        # Initialize the JSON file with opening bracket
+        $outputFilePath = "$OutPath\ComServerData.json"
+        "[" | Out-File $outputFilePath -Encoding utf8
+        
+        $processedCount = 0
+        $totalCount = $ComClassTargets.Count
 
         foreach ($class in $ComClassTargets) {
             # Define a list of CLSIDs to skip (crashes PowerShell)
@@ -201,16 +206,28 @@ function Get-ComServerData {
                 $ClassResult.Interfaces += $InterfaceResult
             }
 
-            $Results += $ClassResult
+            # Convert to JSON and format
+            $jsonOutput = $ClassResult | ConvertTo-Json -Depth 5 | Format-Json -Indentation 2
+            
+            # Add proper indentation for the array element
+            $indentedJson = $jsonOutput -split "`n" | ForEach-Object { "  " + $_ }
+            $indentedJson = $indentedJson -join "`n"
+            
+            # Append to file with comma if not the last item
+            $processedCount++
+            if ($processedCount -lt $totalCount) {
+                $indentedJson + "," | Out-File $outputFilePath -Append -Encoding utf8
+            } else {
+                $indentedJson | Out-File $outputFilePath -Append -Encoding utf8
+            }
+            
+            Write-Verbose "Appended class $processedCount/$totalCount to JSON file"
         }
 
-        # Output results
-        if ($OutPath) {
-            $Results | ConvertTo-Json -Depth 5 | Format-Json | Out-File "$OutPath\ComServerData.json"
-            Write-Host "[+] Exported COM analysis to $OutPath"
-        } else {
-            $Results | Format-List
-        }
+        # Close the JSON array
+        "]" | Out-File $outputFilePath -Append -Encoding utf8
+        
+        Write-Host "[+] Exported $processedCount COM classes to $outputFilePath"
     }
 }
 
@@ -253,4 +270,4 @@ function Format-Json
     }
  
     return $result -join "`n"
-}   
+}
